@@ -50,19 +50,19 @@ posts_id_key = {key['id']: key for key in posts}
 
 
 def index(request):
-    context = {'posts': posts}
+    context = {'post': posts}
     return render(request, 'blog/index.html', context)
 
 
 def post_detail(request, pk):
     try:
         post = posts_id_key[pk]
-        context = {'posts': post}
+        context = {'post': post}
     except KeyError:
         raise Http404('Такого поста не существует')
     return render(request, 'blog/detail.html', context)
 
 
 def category_posts(request, category_slug):
-    context = {'posts': category_slug}
+    context = {'category': category_slug}
     return render(request, 'blog/category.html', context)
