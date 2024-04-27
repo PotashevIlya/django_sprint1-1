@@ -50,7 +50,7 @@ posts_id_key = {key['id']: key for key in posts}
 
 
 def index(request):
-    context = {'post': posts}
+    context = {'posts': posts}
     return render(request, 'blog/index.html', context)
 
 
