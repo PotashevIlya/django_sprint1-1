@@ -1,8 +1,7 @@
-{% load static %}
 {% with request.resolver_match.view_name as view_name %}
-  {% if view_name == 'blog:index' %}
-    <hr>
-    <article>
+  <article>
+    {% if view_name == 'blog:index' %}
+      <hr>
       <ul>
         <li>
           Место: {{ post.location }}              
@@ -18,9 +17,7 @@
         {{ post.text|truncatewords:10 }}
       </p>
       <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
-    </article> 
-  {% elif  view_name == 'blog:post_detail' %} 
-    <article>
+    {% elif  view_name == 'blog:post_detail' %} 
       <ul>
         <li>
           Место: {{ post.location }}              
@@ -35,6 +32,6 @@
       <p>
         {{ post.text|linebreaksbr }}
       </p>          
-    </article>
-  {% endif %}
+  </article> 
+    {% endif %}
 {% endwith %}

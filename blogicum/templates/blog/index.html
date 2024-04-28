@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
   <h1>Лента записей</h1>                        
-    {% for post in posts reversed %}
-      {% include "includes/article.html" %}
-    {% endfor %}
+  {% for post in posts reversed %}
+    {% include "blog/article.html" %}
+  {% endfor %}
 {% endblock %}
